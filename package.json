@@ -33,7 +33,7 @@
     "build:analyze": "ANALYZE=true next build",
     "build:docker": "DOCKER=true next build && npm run build-sitemap",
     "db:generate": "drizzle-kit generate -- dotenv_config_path='.env'",
-    "db:migrate": "MIGRATION_DB=1 tsx scripts/migrateServerDB/index.ts",
+    "db:migrate": "tsx scripts/migrateServerDB/index.ts",
     "db:push": "drizzle-kit push -- dotenv_config_path='.env'",
     "db:push-test": "NODE_ENV=test drizzle-kit push -- dotenv_config_path='.env'",
     "db:studio": "drizzle-kit studio",

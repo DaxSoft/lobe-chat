@@ -1,16 +1,23 @@
 import { Pool as NeonPool, neonConfig } from '@neondatabase/serverless';
+import * as dotenv from 'dotenv';
 import { NeonDatabase, drizzle as neonDrizzle } from 'drizzle-orm/neon-serverless';
 import { drizzle as nodeDrizzle } from 'drizzle-orm/node-postgres';
 import { Pool as NodePool } from 'pg';
 import ws from 'ws';
 
-import { serverDBEnv } from '@/config/db';
-import { isServerMode } from '@/const/version';
+// import { serverDBEnv } from '@/config/db';
 
 import * as schema from '../schemas/lobechat';
 
+// Read the `.env` file if it exists, or a file specified by the
+// dotenv_config_path parameter that's passed to Node.js
+dotenv.config();
+
+const serverDBEnv = process.env;
+
 export const getDBInstance = (): NeonDatabase<typeof schema> => {
-  if (!isServerMode) return {} as any;
+  // if (!isServerMode) return {} as any;
+  console.log('here?', serverDBEnv);
 
   if (!serverDBEnv.KEY_VAULTS_SECRET) {
     throw new Error(

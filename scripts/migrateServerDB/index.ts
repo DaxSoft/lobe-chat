@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import * as migrator from 'drizzle-orm/neon-serverless/migrator';
+import * as migrator from 'drizzle-orm/node-postgres/migrator';
 import { join } from 'node:path';
 
 import { serverDB } from '../../src/database/server/core/db';
@@ -9,6 +9,7 @@ import { serverDB } from '../../src/database/server/core/db';
 dotenv.config();
 
 const runMigrations = async () => {
+  console.log({ migrator }, migrator.migrate, serverDB);
   await migrator.migrate(serverDB, {
     migrationsFolder: join(__dirname, '../../src/database/server/migrations'),
   });
