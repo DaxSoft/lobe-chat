@@ -38,7 +38,7 @@
     "db:push-test": "NODE_ENV=test drizzle-kit push -- dotenv_config_path='.env'",
     "db:studio": "drizzle-kit studio",
     "db:z-pull": "drizzle-kit introspect -- dotenv_config_path='.env'",
-    "dev": "next dev -p 3010 --max-old-space-size=8192",
+    "dev": "next dev -p 3010",
     "dev:clerk-proxy": "ngrok http http://localhost:3011",
     "docs:i18n": "lobe-i18n md && npm run lint:mdx",
     "docs:seo": "lobe-seo && npm run lint:mdx",

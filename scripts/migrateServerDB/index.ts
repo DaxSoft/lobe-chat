@@ -9,7 +9,6 @@ import { serverDB } from '../../src/database/server/core/db';
 dotenv.config();
 
 const runMigrations = async () => {
-  console.log({ migrator }, migrator.migrate, serverDB);
   await migrator.migrate(serverDB, {
     migrationsFolder: join(__dirname, '../../src/database/server/migrations'),
   });
